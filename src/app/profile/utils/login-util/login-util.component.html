@@ -3,7 +3,7 @@
 <form>
 
   <!-- Username input -->
-  <mat-form-field appearance="fill">
+  <mat-form-field class="inputs" appearance="fill">
     <mat-label>Input</mat-label>
     <input matInput>
   </mat-form-field>
@@ -11,7 +11,7 @@
   <br>
 
   <!-- Password input -->
-  <mat-form-field appearance="fill">
+  <mat-form-field class="inputs" appearance="fill">
     <mat-label>Enter your password</mat-label>
     <input matInput [type]="hide ? 'password' : 'text'">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -22,7 +22,7 @@
   <br>
 
   <!-- Action buttons -->
-  <button mat-raised-button color="primary">Enter</button>
-  <button mat-raised-button color="primary">Register</button>
+  <button mat-raised-button class="buttons" color="primary">Enter</button>
+  <button mat-raised-button class="buttons" color="primary">Register</button>
 
 </form>
