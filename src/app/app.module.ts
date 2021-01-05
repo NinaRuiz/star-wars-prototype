@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { ToolbarLayoutComponent } from './layouts/toolbar-layout/toolbar-layout.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
