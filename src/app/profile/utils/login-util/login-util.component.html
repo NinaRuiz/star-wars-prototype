@@ -1,1 +1,28 @@
-<p>login-util works!</p>
+<!-- Login form -->
+
+<form>
+
+  <!-- Username input -->
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <br>
+
+  <!-- Password input -->
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <br>
+
+  <!-- Action buttons -->
+  <button mat-raised-button color="primary">Enter</button>
+  <button mat-raised-button color="primary">Register</button>
+
+</form>
