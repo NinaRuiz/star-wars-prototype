@@ -13,4 +13,15 @@ describe('ProfileService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should create users and save them into local storage', () => {
+
+  });
+
+  /*
+  it('should ', () => {
+
+  });
+   */
+
 });
