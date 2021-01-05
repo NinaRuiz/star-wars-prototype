@@ -7,11 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginUtilComponent implements OnInit {
 
-  hide = true;
+  passwordHide = true;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  // region event handlers
+
+  passwordToggle(e) {
+    e.preventDefault();
+    this.passwordHide = !this.passwordHide;
+  }
+
+  // endregion event handlers
 
 }
