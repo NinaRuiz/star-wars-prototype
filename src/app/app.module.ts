@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { ToolbarLayoutComponent } from './layouts/toolbar-layout/toolbar-layout.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
-    ToolbarLayoutComponent
+    ToolbarLayoutComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
