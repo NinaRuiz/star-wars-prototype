@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: FullLayoutComponent,
-    children: []
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+      }
+    ]
   },
   // @todo add auth guard
   {
