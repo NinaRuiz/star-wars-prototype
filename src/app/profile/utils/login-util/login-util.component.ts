@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ProfileService} from '../../services/profile.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-util',
@@ -14,7 +15,8 @@ export class LoginUtilComponent implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private router: Router
   ) { }
 
   public loginForm = new FormGroup({
@@ -49,7 +51,8 @@ export class LoginUtilComponent implements OnInit {
       (next) => {
         localStorage.setItem('user-logged', JSON.stringify(next));
         this.snackBar.open('Logged!', null, {duration: 3000});
-        // @todo add router link to starships page
+        // @todo change provisional url
+        this.router.navigate(['/toolbar-layout/']);
       },
       (err) => {
         if (err.status === 'NOT_FOUND') {
