@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {StarshipHttpService} from '../../services/starship-http.service';
+import {StarshipListModel} from '../../models/starship-list-model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-starship-list-util',
@@ -7,9 +10,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarshipListUtilComponent implements OnInit {
 
-  constructor() { }
+  private _model: StarshipListModel;
+  loading = false;
 
-  ngOnInit(): void {
+  constructor(
+    private starshipHttpService: StarshipHttpService,
+    private snackBar: MatSnackBar
+  ) {
   }
 
+  ngOnInit(): void {
+    this.loadStarshipsList();
+  }
+
+  loadStarshipsList(page = 0): void {
+    this.loading = true;
+
+    this.starshipHttpService.getList(page).subscribe(
+      (next) => {
+        this.model = next;
+        this.loading = false;
+      },
+      (ko) => {
+        this.snackBar.open('There was some kind of error: ', null, {duration: 3000});
+        console.log(ko);
+        this.loading = false;
+      }
+    );
+  }
+
+  errorHandler(event): void {
+    event.target.src = '/assets/not-found.jpg';
+  }
+
+  // Getters and Setters
+
+  get model(): StarshipListModel {
+    return this._model;
+  }
+
+  set model(value: StarshipListModel) {
+    this._model = value;
+  }
 }

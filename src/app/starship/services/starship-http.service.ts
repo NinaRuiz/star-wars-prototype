@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
@@ -16,13 +16,21 @@ export class StarshipHttpService {
 
   constructor(
     private httpClient: HttpClient
-  ) { }
+  ) {
+  }
 
   getList(pageNumber: number): Observable<StarshipListModel> {
+
+    let filters = {};
+
+    if (pageNumber !== 0) {
+      filters = {
+        page: pageNumber
+      };
+    }
+
     return this.httpClient.get(environment.apiURL + this.tableURL, {
-      params: {
-        page: pageNumber.toString()
-      }
+      params: filters
     }).pipe(
       map(
         response => {

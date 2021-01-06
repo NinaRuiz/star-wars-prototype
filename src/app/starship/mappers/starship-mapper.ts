@@ -17,6 +17,10 @@ export class StarshipMapper {
       }
     }
 
+    let id = model.url.substring(model.url.length - 2, model.url.length - 1);
+    model.id = parseInt(id);
+    model.imgUrl = 'https://starwars-visualguide.com/assets/img/starships/' + model.id + '.jpg';
+
     return model;
   }
 

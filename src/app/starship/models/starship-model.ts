@@ -1,5 +1,25 @@
 export class StarshipModel {
 
+  private _id: number;
+
+  get id(): number {
+    return this._id;
+  }
+
+  set id(value: number) {
+    this._id = value;
+  }
+
+  private _imgUrl: string;
+
+  get imgUrl(): string {
+    return this._imgUrl;
+  }
+
+  set imgUrl(value: string) {
+    this._imgUrl = value;
+  }
+
   /**
    * Passengers property
    *
