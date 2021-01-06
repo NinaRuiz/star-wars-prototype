@@ -18,7 +18,12 @@ const routes: Routes = [
   {
     path: 'toolbar-layout',
     component: ToolbarLayoutComponent,
-    children: []
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./starship/starship.module').then(m => m.StarshipModule)
+      }
+    ]
   }
 ];
 
