@@ -1,11 +1,11 @@
 <!-- Login form -->
 
-<form>
+<form [formGroup]="loginForm">
 
   <!-- Username input -->
   <mat-form-field class="inputs" appearance="fill">
     <mat-label>Username</mat-label>
-    <input matInput>
+    <input required formControlName="username" matInput>
   </mat-form-field>
 
   <br>
@@ -13,7 +13,7 @@
   <!-- Password input -->
   <mat-form-field class="inputs" appearance="fill">
     <mat-label>Password</mat-label>
-    <input matInput [type]="passwordHide ? 'password' : 'text'">
+    <input required formControlName="password" matInput [type]="passwordHide ? 'password' : 'text'">
     <button mat-icon-button matSuffix (click)="this.passwordToggle($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
       <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
@@ -22,7 +22,7 @@
   <br>
 
   <!-- Action buttons -->
-  <button mat-raised-button class="buttons" color="primary">Enter</button>
+  <button mat-raised-button (click)="this.onEnterClick()" class="buttons" color="primary">Enter</button>
   <button mat-raised-button routerLink="/register" class="buttons" color="primary">Register</button>
 
 </form>

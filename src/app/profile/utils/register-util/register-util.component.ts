@@ -61,6 +61,8 @@ export class RegisterUtilComponent implements OnInit {
         (next) => {
           this.snackbar.open("Created user");
           console.log(next);
+
+          // @todo add router to login page
         },
         (err) => {
           if (err.status === 'ERROR_UNIQUE') {
