@@ -16,7 +16,7 @@ export class LoginUtilComponent implements OnInit {
 
   // region event handlers
 
-  passwordToggle(e) {
+  passwordToggle(e): void {
     e.preventDefault();
     this.passwordHide = !this.passwordHide;
   }

@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterUtilComponent implements OnInit {
 
+  passwordHide = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  passwordToggle(e): void {
+    e.preventDefault();
+    this.passwordHide = !this.passwordHide;
   }
 
 }

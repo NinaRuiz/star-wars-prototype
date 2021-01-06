@@ -73,7 +73,7 @@ export class ProfileService {
               }
             );
 
-            if (unique === false) {
+            if (!unique) {
               observer.error({status: 'ERROR_UNIQUE', message: 'UNIQUE: Username is not unique'});
             }else{
               user.id = profileArray.length;
