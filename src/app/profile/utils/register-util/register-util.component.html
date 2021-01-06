@@ -1,11 +1,11 @@
 <!-- Register form -->
 
-<form [formGroup]="form">
+<form [formGroup]="registerForm">
 
   <!-- First Name input -->
   <mat-form-field class="inputs" appearance="fill">
     <mat-label>First Name</mat-label>
-    <input formControlName="firstName" matInput>
+    <input required formControlName="firstName" matInput>
   </mat-form-field>
 
   <br>
@@ -13,7 +13,7 @@
   <!-- Last Name input -->
   <mat-form-field class="inputs" appearance="fill">
     <mat-label>Last Name</mat-label>
-    <input formControlName="lastName" matInput>
+    <input required formControlName="lastName" matInput>
   </mat-form-field>
 
   <br>
@@ -21,7 +21,7 @@
   <!-- Username input -->
   <mat-form-field class="inputs" appearance="fill">
     <mat-label>Username</mat-label>
-    <input formControlName="username" matInput>
+    <input required formControlName="username" matInput>
   </mat-form-field>
 
   <br>
@@ -29,7 +29,7 @@
   <!-- Password input -->
   <mat-form-field class="inputs" appearance="fill">
     <mat-label>Password</mat-label>
-    <input formControlName="password" matInput [type]="passwordHide ? 'password' : 'text'">
+    <input required formControlName="password" matInput [type]="passwordHide ? 'password' : 'text'">
     <button mat-icon-button matSuffix (click)="this.passwordToggle($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
       <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
@@ -40,7 +40,7 @@
   <!-- Repeat Password input -->
   <mat-form-field class="inputs" appearance="fill">
     <mat-label>Repeat Password</mat-label>
-    <input formControlName="repeatPassword" matInput [type]="passwordHide ? 'password' : 'text'">
+    <input required formControlName="repeatPassword" matInput [type]="passwordHide ? 'password' : 'text'">
     <button mat-icon-button matSuffix (click)="this.passwordToggle($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
       <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>

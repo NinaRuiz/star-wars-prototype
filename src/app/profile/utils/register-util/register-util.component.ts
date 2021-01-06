@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfileService} from '../../services/profile.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ProfileModel} from '../../models/profile-model';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {ProfileModel} from '../../models/profile-model';
 
 @Component({
   selector: 'app-register-util',
@@ -13,7 +13,7 @@ export class RegisterUtilComponent implements OnInit {
 
   passwordHide = true;
 
-  public form = new FormGroup({
+  public registerForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     username: new FormControl('', Validators.required),
@@ -32,8 +32,10 @@ export class RegisterUtilComponent implements OnInit {
   // region event handlers
 
   onRegisterClick(): void {
-    if (this.form.valid) {
+    if (this.registerForm.valid) {
       this.saveModel();
+    } else {
+      this.snackbar.open('Please, complete the form by answering the red fields.', null, {duration: 3000});
     }
   }
 
@@ -47,8 +49,28 @@ export class RegisterUtilComponent implements OnInit {
   // region actions
 
   saveModel(): void {
-    if (this.form.value.password === this.form.value.repeatPassword) {
-      console.log('EQUALS');
+    if (this.registerForm.value.password === this.registerForm.value.repeatPassword) {
+
+      const model = new ProfileModel();
+      model.username = this.registerForm.value.username;
+      model.firstName = this.registerForm.value.firstName;
+      model.lastName = this.registerForm.value.lastName;
+      model.password = this.registerForm.value.password;
+
+      this.profileService.create(model).subscribe(
+        (next) => {
+          this.snackbar.open("Created user");
+          console.log(next);
+        },
+        (err) => {
+          if (err.status === 'ERROR_UNIQUE') {
+            this.snackbar.open("That username already exist.", null, {duration: 3000});
+          } else {
+            this.snackbar.open("There was some kind of error", null, {duration: 3000});
+            console.log(err.message);
+          }
+        }
+      );
     }else{
       this.snackbar.open('Passwords are not the same.', null, {duration: 3000});
     }
