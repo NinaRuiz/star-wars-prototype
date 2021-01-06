@@ -37,7 +37,11 @@ export class StarshipMapper {
     const list = new StarshipListModel();
 
     list.pageSize = 10;
-    list.pageNumber = response.next.substring(response.next.length - 1);
+    if (response.next !== null ){
+      list.pageNumber = response.next.substring(response.next.length - 1);
+    } else {
+
+    }
     list.totalPages = response.count / list.pageSize;
     list.totalElements = response.count;
     list.size = 10;

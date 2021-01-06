@@ -1,5 +1,12 @@
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
+<mat-paginator [length]="model.totalElements"
+               [pageSize]="model.pageSize"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               [hidePageSize]="true"
+               (page)="onEventPagination($event)">
+</mat-paginator>
+
 <mat-grid-list cols="4" rowHeight="500px" *ngIf="!loading">
   <mat-grid-tile *ngFor="let starship of this.model.starshipList">
     <mat-card class="example-card mat-elevation-z2">

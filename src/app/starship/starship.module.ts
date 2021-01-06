@@ -10,6 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatGridListModule,
     OverlayModule,
     MatProgressBarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule
   ],
   providers: [
     MatSnackBar

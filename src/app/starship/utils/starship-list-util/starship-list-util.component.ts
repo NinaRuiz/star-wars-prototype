@@ -43,6 +43,10 @@ export class StarshipListUtilComponent implements OnInit {
     event.target.src = '/assets/not-found.jpg';
   }
 
+  onEventPagination(event: any) {
+    this.loadStarshipsList(event.pageIndex + 1);
+  }
+
   // Getters and Setters
 
   get model(): StarshipListModel {
