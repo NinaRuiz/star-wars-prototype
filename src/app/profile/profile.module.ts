@@ -11,18 +11,26 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 
 @NgModule({
   declarations: [LoginPageComponent, RegisterPageComponent, LoginUtilComponent, RegisterUtilComponent],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule
+    imports: [
+        CommonModule,
+        ProfileRoutingModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        ReactiveFormsModule,
+      OverlayModule
+    ],
+  providers: [
+    MatSnackBar
   ]
 })
 export class ProfileModule { }
