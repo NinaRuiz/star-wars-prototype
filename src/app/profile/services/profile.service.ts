@@ -15,8 +15,44 @@ export class ProfileService {
   /**
    *
    */
-  login() {
+  login(username: string, password: string): Observable<ProfileModel> {
+    return new Observable(
+      observer => {
+        this.getList().subscribe(
+          (next: ProfileModel[]) => {
+            const profileModels = next;
+            let user: ProfileModel = null;
 
+            profileModels.forEach(
+              profileModel => {
+                if (profileModel.username === username) {
+                  user = profileModel;
+                }
+              }
+            );
+
+            if (user === null) {
+              observer.error({
+                status: 'NOT_FOUND',
+                message: 'User not found.'
+              });
+            } else {
+              if (user.password === password) {
+                observer.next(user);
+              } else {
+                observer.error({
+                  status: 'PASSWORD_WRONG',
+                  message: 'Passwords doesn\'t match.'
+                });
+              }
+            }
+          },
+          (err) => {
+            observer.error(err);
+          }
+        );
+      }
+    );
   }
 
   /**
@@ -85,7 +121,7 @@ export class ProfileService {
               }
             );
 
-            if (profileArray.length === 0 ) {
+            if (profileArray.length === 0) {
               unique = true;
             }
 
