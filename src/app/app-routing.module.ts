@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {FullLayoutComponent} from './layouts/full-layout/full-layout.component';
 import {ToolbarLayoutComponent} from './layouts/toolbar-layout/toolbar-layout.component';
+import {AuthGuardService} from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -14,13 +15,14 @@ const routes: Routes = [
       }
     ]
   },
-  // @todo add auth guard
+
   {
-    path: 'toolbar-layout',
+    path: '',
     component: ToolbarLayoutComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
-        path: '',
+        path: 'starship',
         loadChildren: () => import('./starship/starship.module').then(m => m.StarshipModule)
       }
     ]

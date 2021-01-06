@@ -51,8 +51,7 @@ export class LoginUtilComponent implements OnInit {
       (next) => {
         localStorage.setItem('user-logged', JSON.stringify(next));
         this.snackBar.open('Logged!', null, {duration: 3000});
-        // @todo change provisional url
-        this.router.navigate(['/toolbar-layout/']);
+        this.router.navigate(['/starship']);
       },
       (err) => {
         if (err.status === 'NOT_FOUND') {
