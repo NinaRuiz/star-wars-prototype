@@ -37,8 +37,19 @@
 
   <br>
 
+  <!-- Repeat Password input -->
+  <mat-form-field class="inputs" appearance="fill">
+    <mat-label>Repeat Password</mat-label>
+    <input matInput [type]="passwordHide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="this.passwordToggle($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+      <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <br>
+
   <!-- Action buttons -->
-  <button mat-raised-button class="buttons" color="primary">Enter</button>
   <button mat-raised-button class="buttons" color="primary">Register</button>
+  <button mat-raised-button routerLink="/" class="buttons" color="primary">Already have an account?</button>
 
 </form>
