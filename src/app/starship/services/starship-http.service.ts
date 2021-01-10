@@ -40,19 +40,19 @@ export class StarshipHttpService {
     );
   }
 
-  getById() {
-
+  getById(): Observable<StarshipModel> {
+    return new Observable<StarshipModel>();
   }
 
-  create() {
-
+  create(): void {
+    // @todo create starship
   }
 
-  update() {
-
+  update(): void {
+    // @todo edit starship
   }
 
-  delete() {
-
+  delete(): void {
+    // @todo delete starship
   }
 }
