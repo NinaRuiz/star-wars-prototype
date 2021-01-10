@@ -22,14 +22,25 @@ describe('StarshipHttpService', () => {
 
   // region good faith
 
+
   it ('getListTest validate return type', () => {
     const list: any = service.getList(1);
+    expect(list instanceof Observable).toBeTruthy();
+  });
+
+  it ('getListTest validate return first page', () => {
+    const list: any = service.getList(0);
     expect(list instanceof Observable).toBeTruthy();
   });
 
   // endregion good faith
 
   // region bad faith
+
+  it ('getListTest validate negative integer ', () => {
+    const list: any = service.getList(-1);
+    expect(list).toBeNull();
+  });
 
   // region bad faith
 

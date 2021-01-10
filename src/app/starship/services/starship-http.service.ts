@@ -23,6 +23,10 @@ export class StarshipHttpService {
 
     let filters = {};
 
+    if (pageNumber < 0) {
+      return null;
+    }
+
     if (pageNumber !== 0) {
       filters = {
         page: pageNumber
