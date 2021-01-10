@@ -26,7 +26,7 @@ export class StarshipListUtilComponent implements OnInit {
   loadStarshipsList(page = 0): void {
     this.loading = true;
 
-    this.starshipHttpService.getList(page).subscribe(
+    this.starshipHttpService.getCacheList(page).subscribe(
       (next) => {
         this.model = next;
         this.loading = false;
