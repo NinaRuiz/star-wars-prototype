@@ -10,13 +10,17 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { TestPageComponent } from './components/test-page/test-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
     ToolbarLayoutComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    TestPageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     MatToolbarModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [
     HttpClient

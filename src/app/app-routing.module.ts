@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {FullLayoutComponent} from './layouts/full-layout/full-layout.component';
 import {ToolbarLayoutComponent} from './layouts/toolbar-layout/toolbar-layout.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {TestPageComponent} from './components/test-page/test-page.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'starship',
         loadChildren: () => import('./starship/starship.module').then(m => m.StarshipModule)
+      },
+      {
+        path: 'test-page',
+        component: TestPageComponent
       }
     ]
   }
