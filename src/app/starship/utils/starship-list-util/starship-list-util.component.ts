@@ -2,6 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {StarshipHttpService} from '../../services/starship-http.service';
 import {StarshipListModel} from '../../models/starship-list-model';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog} from '@angular/material/dialog';
+import {StarshipDetailDialogComponent} from '../starship-detail-dialog/starship-detail-dialog.component';
+import {StarshipModel} from '../../models/starship-model';
+
+export interface DialogData {
+  animal: string;
+  starship: StarshipModel;
+}
 
 @Component({
   selector: 'app-starship-list-util',
@@ -15,12 +23,23 @@ export class StarshipListUtilComponent implements OnInit {
 
   constructor(
     private starshipHttpService: StarshipHttpService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {
   }
 
   ngOnInit(): void {
     this.loadStarshipsList();
+  }
+
+  openDialog(starshipModel: StarshipModel): void {
+    const dialogRef = this.dialog.open(StarshipDetailDialogComponent, {
+      width: '250px',
+      data: {starship: starshipModel, animal: ''}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   loadStarshipsList(page = 0): void {

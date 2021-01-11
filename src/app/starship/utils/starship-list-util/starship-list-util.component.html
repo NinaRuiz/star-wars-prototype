@@ -19,7 +19,7 @@
            (error)="this.errorHandler($event)"
            alt="Not available image">
       <mat-card-actions>
-        <button mat-raised-button>See details</button>
+        <button mat-raised-button (click)="openDialog(starship)">See details</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

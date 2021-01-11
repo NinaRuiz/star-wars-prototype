@@ -12,6 +12,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { StarshipDetailDialogComponent } from './utils/starship-detail-dialog/starship-detail-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { StarshipDetailDialogComponent } from './utils/starship-detail-dialog/st
     OverlayModule,
     MatProgressBarModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatListModule
   ],
   providers: [
     MatSnackBar

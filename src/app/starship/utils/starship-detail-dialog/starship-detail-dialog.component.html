@@ -1,1 +1,30 @@
-<p>starship-detail-dialog works!</p>
+<h1 mat-dialog-title>Starship: {{data.starship.name}}</h1>
+<div mat-dialog-content>
+  <p><strong>Model: </strong>{{data.starship.model}}</p>
+  <p><strong>Manufacturer: </strong>{{data.starship.manufacturer}}</p>
+  <p><strong>Cost in Credits: </strong>{{data.starship.costInCredits}}</p>
+  <p><strong>Length: </strong>{{data.starship.length}}</p>
+  <p><strong>Max Atmosphering Speed: </strong>{{data.starship.maxAtmospheringSpeed}}</p>
+  <p><strong>Crew: </strong>{{data.starship.crew}}</p>
+  <p><strong>Passengers: </strong>{{data.starship.passengers}}</p>
+  <p><strong>Cargo Capacity: </strong>{{data.starship.cargoCapacity}}</p>
+  <p><strong>Hyperdrive Rating: </strong>{{data.starship.hyperdriveRating}}</p>
+  <p><strong>MGLT: </strong>{{data.starship.MGLT}}</p>
+  <p><strong>Starship Class: </strong>{{data.starship.starshipClass}}</p>
+  <p><strong>Pilots: </strong>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let pilot of data.starship.pilots">{{pilot}}</mat-list-item>
+    </mat-list>
+  </p>
+  <p><strong>Films: </strong>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let film of data.starship.films">{{film}}</mat-list-item>
+    </mat-list>
+  </p>
+  <p><strong>Created: </strong>{{data.starship.created | date: 'dd-MM-yyyy'}}</p>
+  <p><strong>Edited: </strong>{{data.starship.edited | date: 'dd-MM-yyyy'}}</p>
+  <p><strong>URL: </strong>{{data.starship.url}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>
