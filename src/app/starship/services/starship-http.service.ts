@@ -35,6 +35,10 @@ export class StarshipHttpService {
 
     let filters = {};
 
+    if (pageNumber < 0) {
+      return null;
+    }
+
     if (pageNumber !== 0) {
       filters = {
         page: pageNumber
@@ -52,19 +56,19 @@ export class StarshipHttpService {
     );
   }
 
-  getById() {
-
+  getById(): Observable<StarshipModel> {
+    return new Observable<StarshipModel>();
   }
 
-  create() {
-
+  create(): void {
+    // @todo create starship
   }
 
-  update() {
-
+  update(): void {
+    // @todo edit starship
   }
 
-  delete() {
-
+  delete(): void {
+    // @todo delete starship
   }
 }
