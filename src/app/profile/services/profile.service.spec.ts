@@ -29,6 +29,8 @@ import {ProfileModel} from '../models/profile-model';
 describe('ProfileService', () => {
   let service: ProfileService;
 
+  localStorage.clear();
+
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ProfileService);
