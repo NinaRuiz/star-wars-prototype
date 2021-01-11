@@ -11,10 +11,11 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { StarshipDetailDialogComponent } from './utils/starship-detail-dialog/starship-detail-dialog.component';
 
 
 @NgModule({
-  declarations: [StarshipListPageComponent, StarshipListUtilComponent],
+  declarations: [StarshipListPageComponent, StarshipListUtilComponent, StarshipDetailDialogComponent],
   imports: [
     CommonModule,
     StarshipRoutingModule,
