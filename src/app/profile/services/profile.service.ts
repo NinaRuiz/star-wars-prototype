@@ -58,7 +58,7 @@ export class ProfileService {
   /**
    *
    */
-  getList() {
+  getList(): Observable<ProfileModel[]> {
     return new Observable(
       (observer) => {
 
@@ -93,8 +93,8 @@ export class ProfileService {
   /**
    *
    */
-  getById() {
-
+  getById(): void {
+    // @todo get user by id
   }
 
   /**
@@ -146,15 +146,15 @@ export class ProfileService {
   /**
    *
    */
-  delete() {
-
+  delete(): void {
+    // @todo delete method
   }
 
   /**
    *
    */
-  update() {
-
+  update(): void {
+    /// @todo update method
   }
 
   // endregion rest functions
